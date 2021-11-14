@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension version="4.0" type="plugin" group="content" method="upgrade">
+	<name>Content - EventList</name>
+	<creationDate>23.01.2019</creationDate>
+	<version>2.0.0</version>
+	<author>Ulrich Rueth</author>
+	<authorEmail>code@rueth.info</authorEmail>
+	<authorUrl>https://rueth.info</authorUrl>
+	<copyright>Copyright (C) 2018-2019 Ulrich Rueth</copyright>
+	<license>Code released under the [GNU GPL 3.0]
+		(https://github.com/UlricusR/joomla-eventlist/blob/master/LICENSE) license.
+	</license>
+	<description>PLG_CONTENT_EVENTLIST_DESC</description>
+
+	<files>
+		<filename plugin="eventlist">eventlist.php</filename>
+		<folder>language</folder>
+		<folder>sql</folder>
+		<folder>extras</folder>
+		<folder>models</folder>
+	</files>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="plg_eventlist_limittocategories"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="PLG_CONTENT_EVENTLIST_PARAM_LIMITTOCATEGORIES"
+					description="PLG_CONTENT_EVENTLIST_PARAM_LIMITTOCATEGORIES_DESC"
+					>
+						<option value="1">JYES</option>
+						<option value="0">JNO</option>
+				</field>
+				<field
+					name="plg_eventlist_categories"
+					type="category"
+					extension="com_content"
+					multiple="true"
+					label="PLG_CONTENT_EVENTLIST_PARAM_CATEGORIES"
+					description="PLG_CONTENT_EVENTLIST_PARAM_CATEGORIES_DESC"
+					showon="plg_eventlist_limittocategories:1"
+				/>
+				<field
+					name="plg_eventlist_includechildcategories"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="1"
+					label="PLG_CONTENT_EVENTLIST_PARAM_INCLUDECHILDCATEGORIES"
+					description="PLG_CONTENT_EVENTLIST_PARAM_INCLUDECHILDCATEGORIES_DESC"
+					showon="plg_eventlist_limittocategories:1"
+					>
+						<option value="1">JYES</option>
+						<option value="0">JNO</option>
+				</field>
+				<field
+					name="plg_eventlist_timeformat"
+					type="list"
+					required="true"
+					default="H:i"
+					label="PLG_CONTENT_EVENTLIST_PARAM_TIMEFORMAT"
+					description="PLG_CONTENT_EVENTLIST_PARAM_TIMEFORMAT_DESC">
+					<option value="H:i">PLG_CONTENT_EVENTLIST_VALUE_TIMEFORMAT_24_LONG</option>
+					<option value="h:i A">PLG_CONTENT_EVENTLIST_VALUE_TIMEFORMAT_12_LONG</option>
+					<option value="G:i">PLG_CONTENT_EVENTLIST_VALUE_TIMEFORMAT_24_SHORT</option>
+					<option value="g:i A">PLG_CONTENT_EVENTLIST_VALUE_TIMEFORMAT_12_SHORT</option>
+					<option value="free">PLG_CONTENT_EVENTLIST_VALUE_TIMEFORMAT_FREE</option>
+				</field>
+				<field
+					name="plg_eventlist_timeformat_free"
+					type="text"
+					label="PLG_CONTENT_EVENTLIST_PARAM_FREE"
+					description="PLG_CONTENT_EVENTLIST_PARAM_FREE_DESC"
+					showon="plg_eventlist_timeformat:free"/>
+				<field
+					name="plg_eventlist_displaystyle"
+					type="list"
+					default="title"
+					label="PLG_CONTENT_EVENTLIST_PARAM_DISPLAYSTYLE"
+					description="PLG_CONTENT_EVENTLIST_PARAM_DISPLAYSTYLE_DESC">
+					<option value="plain">PLG_CONTENT_EVENTLIST_VALUE_DISPLAYSTYLE_PLAIN</option>
+					<option value="title">PLG_CONTENT_EVENTLIST_VALUE_DISPLAYSTYLE_TITLE</option>
+				</field>
+				<field
+					name="plg_eventlist_displaytitle"
+					type="text"
+					default="Info"
+					hint="Info"
+					showon="plg_eventlist_displaystyle:title"
+					label="PLG_CONTENT_EVENTLIST_PARAM_DISPLAYTITLE"
+					description="PLG_CONTENT_EVENTLIST_PARAM_DISPLAYTITLE_DESC"/>
+			</fieldset>
+		</fields>
+	</config>
+
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/update</schemapath>
+		</schemas>
+	</update>
+</extension>

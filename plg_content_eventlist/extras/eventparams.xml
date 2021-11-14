@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+	<fields name="attribs" addrulepath="/plugins/content/eventlist/models/rules">
+		<fieldset name="eventinfo" label="PLG_CONTENT_EVENTLIST_FIELDSET_EVENTINFO">
+			<field
+				name="eventlist_show"
+				type="radio"
+				required="true"
+				label="PLG_CONTENT_EVENTLIST_PARAM_SHOW"
+				class="btn-group btn-group-yesno"
+				default="1"
+				description="PLG_CONTENT_EVENTLIST_PARAM_SHOW_DESC">
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+			<field
+				name="eventlist_contactperson"
+				type="text"
+				label="PLG_CONTENT_EVENTLIST_PARAM_CONTACTPERSON"
+				description="PLG_CONTENT_EVENTLIST_PARAM_CONTACTPERSON_DESC"
+			/>
+			<field
+				name="eventlist_email"
+				type="email"
+				label="JGLOBAL_EMAIL"
+				description="PLG_CONTENT_EVENTLIST_PARAM_EMAIL_DESC"
+				hint="e.g.: name@organization.com"
+				validate="email"
+			/>
+			<field
+				name="eventlist_phone"
+				type="tel"
+				label="PLG_CONTENT_EVENTLIST_PARAM_PHONE"
+				description="PLG_CONTENT_EVENTLIST_PARAM_PHONE_DESC"
+				hint="e.g.: 0123 456789"
+				validate="tel"
+			/>
+			<field
+				name="eventlist_audience"
+				type="text"
+				label="PLG_CONTENT_EVENTLIST_PARAM_AUDIENCE"
+				description="PLG_CONTENT_EVENTLIST_PARAM_AUDIENCE_DESC"
+			/>
+			<field
+				name="eventlist_location"
+				type="text"
+				label="PLG_CONTENT_EVENTLIST_PARAM_LOCATION"
+				description="PLG_CONTENT_EVENTLIST_PARAM_LOCATION_DESC"
+			/>
+			<field
+				name="eventlist_weekday"
+				type="list"
+				label="PLG_CONTENT_EVENTLIST_PARAM_WEEKDAY"
+				description="PLG_CONTENT_EVENTLIST_PARAM_WEEKDAY_DESC"
+			>
+				<option value=""></option>
+				<option value="1">PLG_CONTENT_EVENTLIST_VALUE_SUNDAY</option>
+				<option value="2">PLG_CONTENT_EVENTLIST_VALUE_MONDAY</option>
+				<option value="3">PLG_CONTENT_EVENTLIST_VALUE_TUESDAY</option>
+				<option value="4">PLG_CONTENT_EVENTLIST_VALUE_WEDNESDAY</option>
+				<option value="5">PLG_CONTENT_EVENTLIST_VALUE_THURSDAY</option>
+				<option value="6">PLG_CONTENT_EVENTLIST_VALUE_FRIDAY</option>
+				<option value="7">PLG_CONTENT_EVENTLIST_VALUE_SATURDAY</option>
+			</field>
+			<field
+				name="eventlist_starttime"
+				type="text"
+				label="PLG_CONTENT_EVENTLIST_PARAM_STARTTIME"
+				hint="e.g.: 19:30 or 07:30 PM"
+				description="PLG_CONTENT_EVENTLIST_PARAM_STARTTIME_DESC"
+				validate="time"
+			/>
+			<field
+				name="eventlist_endtime"
+				type="text"
+				label="PLG_CONTENT_EVENTLIST_PARAM_ENDTIME"
+				hint="e.g.: 21:00 or 09:00 PM"
+				description="PLG_CONTENT_EVENTLIST_PARAM_ENDTIME_DESC"
+				validate="time"
+				showon="eventlist_starttime!:"
+			/>
+			<field
+				name="eventlist_comment"
+				type="text"
+				label="PLG_CONTENT_EVENTLIST_PARAM_COMMENT"
+				hint="e.g.: bi-weekly"
+				description="PLG_CONTENT_EVENTLIST_PARAM_COMMENT_DESC"
+			/>
+		</fieldset>
+	</fields>
+</form>

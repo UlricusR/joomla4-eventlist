@@ -1,0 +1,26 @@
+.eventparams table {
+	border: 1px solid #e4e4e4;
+}
+
+.eventparams th {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	font-weight: bold;
+}
+
+.eventparams tr.row0 {
+	background-color: #e4e4e4;
+}
+
+.eventparams tr.row1 {
+	background-color: #ffffff;
+}
+
+.eventparams td {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+.eventparams td.eventinfo_label {
+	font-weight: bolder;
+}

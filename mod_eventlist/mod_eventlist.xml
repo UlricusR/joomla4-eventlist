@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="4.0" client="site" method="upgrade">
+	<name>EventList</name>
+	<creationDate>23.01.2019</creationDate>
+	<version>2.0.0</version>
+	<author>Ulrich Rueth</author>
+	<authorEmail>code@rueth.info</authorEmail>
+	<authorUrl>https://rueth.info</authorUrl>
+	<copyright>Copyright (C) 2018-2019 Ulrich Rueth</copyright>
+	<license>Code released under the [GNU GPL 3.0]
+		(https://github.com/UlricusR/joomla-eventlist/blob/master/LICENSE) license.
+	</license>
+	<description>MOD_EVENTLIST_DESC</description>
+	<namespace>RuethInfo\Module\EventList</namespace>
+	
+	<files>
+		<filename>mod_eventlist.xml</filename>
+		<filename module="mod_eventlist">mod_eventlist.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+		<folder>css</folder>
+		<folder>Helper</folder>
+	</files>
+	<scriptfile>script.php</scriptfile>
+	
+	<config>
+	   <fields name="params">
+			<fieldset name="basic">
+				<field
+					name="eventlist_showdespitenotpublished"
+					type="radio"
+	   				required="true"
+					label="MOD_EVENTLIST_FIELD_SHOWDESPITENOTPUBLISHED"
+					default="0"
+					description="MOD_EVENTLIST_FIELD_SHOWDESPITENOTPUBLISHED_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="eventlist_categories"
+					type="category"
+					extension="com_content"
+					published="1"
+					label="MOD_EVENTLIST_FIELD_CATEGORIES"
+					description="MOD_EVENTLIST_FIELD_CATEGORIES_DESC"
+					multiple="true"/>
+				<field
+					name="eventlist_weekstarts"
+					type="list"
+					label="MOD_EVENTLIST_FIELD_WEEKSTARTS"
+					description="MOD_EVENTLIST_FIELD_WEEKSTARTS_DESC"
+					default="0">
+					<option value="0">MOD_EVENTLIST_FIELD_WEEKSTARTS_SUNDAY</option>
+					<option value="1">MOD_EVENTLIST_FIELD_WEEKSTARTS_MONDAY</option>
+				</field>
+				<field
+					name="eventlist_template"
+					type="list"
+					required="true"
+					label="MOD_EVENTLIST_FIELD_TEMPLATE"
+					default="international"
+					description="MOD_EVENTLIST_FIELD_TEMPLATE_DESC">
+					<option value="international">MOD_EVENTLIST_FIELD_TEMPLATE_INT</option>
+					<option value="de">MOD_EVENTLIST_FIELD_TEMPLATE_DE</option>
+					<option value="default">MOD_EVENTLIST_FIELD_TEMPLATE_FREE</option>
+				</field>
+				<field
+					name="eventlist_timeseparator"
+					type="text"
+					label="MOD_EVENTLIST_FIELD_TIMESEPARATOR"
+					description="MOD_EVENTLIST_FIELD_TIMESEPARATOR_DESC"
+					showon="eventlist_template:default"
+					default="-"
+					hint="e.g. '-' or ' to '"/>
+				<field
+					name="eventlist_aftertime"
+					type="text"
+					label="MOD_EVENTLIST_FIELD_AFTERTIME"
+					description="MOD_EVENTLIST_FIELD_AFTERTIME_DESC"
+					showon="eventlist_template:default"
+					default=" Uhr"
+					hint="e.g. ' Uhr' or 'o'clock'"/>
+				<field
+					name="eventlist_beforecomment"
+					type="text"
+					label="MOD_EVENTLIST_FIELD_BEFORECOMMENT"
+					description="MOD_EVENTLIST_FIELD_BEFORECOMMENT_DESC"
+					showon="eventlist_template:default"
+					default=" ("
+					hint="e.g. ' ('"/>
+				<field
+					name="eventlist_aftercomment"
+					type="text"
+					label="MOD_EVENTLIST_FIELD_AFTERCOMMENT"
+					description="MOD_EVENTLIST_FIELD_AFTERCOMMENT_DESC"
+					showon="eventlist_template:default"
+					default=")"
+					hint="e.g. ')'"/>
+				<field
+					name="eventlist_beforetitle"
+					type="text"
+					label="MOD_EVENTLIST_FIELD_BEFORETITLE"
+					description="MOD_EVENTLIST_FIELD_BEFORETITLE_DESC"
+					showon="eventlist_template:default"
+					default=": "
+					hint="e.g. ': '"/>
+			</fieldset>
+		</fields>
+	</config>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_eventlist.ini</language>
+		<!--<language tag="en-GB">en-GB/en-GB.mod_eventlist.sys.ini</language>-->
+		<language tag="de-DE">de-DE/de-DE.mod_eventlist.ini</language>
+		<!--<language tag="de-DE">de-DE/de-DE.mod_eventlist.sys.ini</language>-->
+	</languages>
+</extension>
