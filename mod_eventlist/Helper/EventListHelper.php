@@ -3,7 +3,7 @@
  * @package     Joomla.Site
  * @subpackage  mod_eventlist
  *
- * @copyright   Copyright (C) 2018-2019 Ulrich Rueth. All rights reserved.
+ * @copyright   Copyright (C) 2018-2021 Ulrich Rueth. All rights reserved.
  * @license     GNU General Public License version 3 or later
  */
 namespace RuethInfo\Module\EventList\Site\Helper;
