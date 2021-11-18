@@ -1,10 +1,11 @@
 <?php
 /**
- * @copyright Copyright 2018-2021 Ulrich Rueth. All Rights Reserved.
+ * @copyright Copyright 2018-2019 Ulrich Rueth. All Rights Reserved.
  * @license    GNU General Public License version 3 or later
  */
 
 defined('_JEXEC') or die;
+jimport('joomla.plugin.plugin');
 
 // Imports
 use Joomla\CMS\Factory;
@@ -19,7 +20,7 @@ use Joomla\Registry\Registry;
 /**
  * This is a custom plugin class to add additional fields to com_content to allow it to be used for capturing recurring events
  */
-class PlgContentEventlist extends CMSPlugin
+class plgContentEventlist extends CMSPlugin
 {
 	/**
 	 * Load the language file on instantiation.
@@ -259,10 +260,12 @@ class PlgContentEventlist extends CMSPlugin
 		{
 			try
 			{
-			    $this->db->setQuery('DELETE FROM #__content_eventlist WHERE article_id = '.$articleId );
+				$db = Factory::getDbo();
 
-			    if (!$this->db->execute()) {
-			        throw new Exception($this->db->getErrorMsg());
+				$db->setQuery('DELETE FROM #__content_eventlist WHERE article_id = '.$articleId );
+
+				if (!$db->execute()) {
+					throw new Exception($db->getErrorMsg());
 				}
 			}
 			catch (Exception $e)
@@ -308,7 +311,8 @@ class PlgContentEventlist extends CMSPlugin
 		}
 
 		// Add CSS for table
-		$this->document->addStyleSheet(Uri::base(true).'/plugins/content/eventlist/extras/eventinfo.css');
+		$doc = Factory::getDocument();
+		$doc->addStyleSheet(Uri::base(true).'/plugins/content/eventlist/extras/eventinfo.css');
 
 		// Load form & fieldset
 		$file = __DIR__ . '/extras/eventparams.xml';
@@ -395,35 +399,39 @@ class PlgContentEventlist extends CMSPlugin
 	*/
 	public function insertRecord($attribs, $articleId)
 	{
+		// Get a db connection.
+		$db = Factory::getDbo();
+
 		// Create a new query object.
-		$query = $this->db->getQuery(true);
+		$query = $db->getQuery(true);
 
 		// Insert columns.
 		$columns = array('article_id', 'data', 'created', 'created_by');
 
-		$created_by = $this->user->id;
+		$user = Factory::getUser();
+		$created_by = $user->id;
 		$created = Factory::getDate()->toSql();
 
 		// Insert values.
 		$values = array(
 			$articleId,
-			$this->db->quote(json_encode($attribs)),
-		    $this->db->quote($created),
+			$db->quote(json_encode($attribs)),
+			$db->quote($created),
 			$created_by,
 		);
 
 		// insert query
 		$query
-		  ->insert($this->db->quoteName('#__content_eventlist'))
-		  ->columns($this->db->quoteName($columns))
-		  ->values(implode(',', $values));
+			->insert($db->quoteName('#__content_eventlist'))
+			->columns($db->quoteName($columns))
+			->values(implode(',', $values));
 
 		// set the query
-		$this->db->setQuery($query);
+		$db->setQuery($query);
 
 		// execute, throw an exception if we have a problem
-		if (!$this->db->execute()) {
-		    throw new Exception($this->db->getErrorMsg());
+		if (!$db->execute()) {
+			throw new Exception($db->getErrorMsg());
 		}
 
 		return true;
@@ -441,32 +449,35 @@ class PlgContentEventlist extends CMSPlugin
 	*/
 	protected function updateRecord($attribs, $articleId)
 	{
+		$db = Factory::getDbo();
+
 		// Create a new query object.
-	    $query = $this->db->getQuery(true);
+		$query = $db->getQuery(true);
 
 		$conditions = array(
 			'article_id='.$articleId,
 		);
 
-		$modified_by = $this->user->id;
+		$user = Factory::getUser();
+		$modified_by = $user->id;
 		$modified = Factory::getDate()->toSql();
 
 		// Fields to update.
 		$fields = array(
-		    'data='.$this->db->quote(json_encode($attribs)),
-		    'modified='.$this->db->quote($modified),
+			'data='.$db->quote(json_encode($attribs)),
+			'modified='.$db->quote($modified),
 			'modified_by='.$modified_by,
 		);
 
 		// update query
-		$query->update($this->db->quoteName('#__content_eventlist'))->set($fields)->where($conditions);
+		$query->update($db->quoteName('#__content_eventlist'))->set($fields)->where($conditions);
 
 		// set the query
-		$this->db->setQuery($query);
+		$db->setQuery($query);
 
 		// execute, throw an exception if we have a problem
-		if (!$this->db->execute()) {
-		    throw new Exception($this->db->getErrorMsg());
+		if (!$db->execute()) {
+			throw new Exception($db->getErrorMsg());
 		}
 
 		return true;
@@ -511,7 +522,8 @@ class PlgContentEventlist extends CMSPlugin
 	protected function getChildCategories($catId)
 	{
 		jimport('joomla.application.categories');
-		$cat		= $this->categories->get($catId);
+		$allcategories = Categories::getInstance('Content');
+		$cat		= $allcategories->get($catId);
 		$children	= $cat->getChildren();
 		$childCats	= array();
 
@@ -535,7 +547,8 @@ class PlgContentEventlist extends CMSPlugin
 		$parentCats	= array();
 
 		jimport('joomla.application.categories');
-		$cat		= $this->categories->get($catId);
+		$allcategories = Categories::getInstance('Content');
+		$cat		= $allcategories->get($catId);
 
 		// Check the parent_id. If it is an integer > 0, update the array and
 		// check for a parent_id of the parent... Only going up 2 levels...
