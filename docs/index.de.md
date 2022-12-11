@@ -1,68 +1,146 @@
-# Was ist EasyFPE?
+# Benutzerhandbuch
 
-![EasyFPE-App-Icon](assets/images/pizza_small.png){ align=left }
+In Joomla! EventList dreht sich alles um wöchentlich wiederkehrende Events Wie Chorproben, Gruppenstunden, etc.
 
-EasyFPE ist eine Android-App - hauptsächlich für Typ 1-Diabetiker - zum einfachen Berechnen von Kohlenhydraten, Fett-Protein-Einheiten (FPE) bzw. verzögerten Kohlenhydraten (auch bekannt als e-Carbs oder Fake Carbs) und dazugehöriger Absorptionszeit. 
+![Beispielhafte EventList-Ansicht](assets/images/Portfolio_EventList.png){ .off-glb }
 
-## Haftungsausschluss
+Joomla! EventList ist eine Paketinstallation und besteht aus zwei Erweiterungen:
 
-!!! warning "Warnung"
+- Ein Plugin, welches jedem Artikel zusätzliche Felder wie Kontaktperson, E-Mail-Adresse, Telefonnummer, Wochentag, Startzeit, usw. zur Verfügung stellt. Diese Felder werden dann am Ende des Artikels in einer übersichtlichen Infobox angezeigt. Das Plugin kann auch ohne das Modul verwendet werden.
+- Ein Modul, welches alle zur Anzeige ausgewählten Artikel als übersichtliche Liste darstellt (siehe Bild). Dieses Modul kann an jeder beliebigen Stelle eingebunden werden und natürlich auch per CSS angepasst werden. Aus der Liste heraus wird auf den Artikel mit der Detailbeschreibung verlinkt. Das Modul benötigt das Plugin!
 
-    Ich muss und will vorab darauf hinweisen, dass die Nutzung dieser App auf eigenes Risiko erfolgt.
+# Besonderheiten
 
-Die von der App errechneten Fett-Protein-Einheiten und Absorptionszeiten orientieren sich an den Empfehlungen z.B. der Deutschen Diabeteshilfe (siehe Links), wobei mit Absicht die vereinfachte Berechnungslogik angewandt wird: Statt die Fettmenge eines Essens mit 9 kcal/g und die Proteinmenge mit 4 kcal/g zu berechnen, werden von der Gesamtkalorienmenge die Kalorien aus Kohlenhydraten (4 kcal/g) abgezogen. Die Differenz ergibt dann die Kalorienmenge aus Fett und Proteinen. Die detaillierten Berechnungsschritte sind im Kapitel über das Absorptionsschema beschrieben.
+## EventList PlugIn Besonderheiten
 
-Vorteil dieser Methode: Der Nutzer muss nur die Kalorien und die Kohlenhydrate pro 100g Essen eingeben und nicht zusätzlich noch die spezifischen Fett- und Proteinmengen.
+![Infobox unter dem Artikel](assets/images/EventList_Plugin_Ausgabe.png){ style="width:100px", align=right }
 
-!!! warning "Warnung"
+- Auswahl, ob ein Artikel in der Event-Liste dargestellt wird oder nicht
+- Felder für Kontaktperson, E-Mail-Adresse, Telefonnummer, Zielgruppe und Ort (relevant für die Anzeige im Artikel)
+- Weitere Felder für Wochentag, Startzeit, Endzeit, Kommentar (zusätzlich relevant für die Anzeige im Modul EventList)
+- Verschiedene voreingestellte Zeitformate: 24h-Format mit oder ohne führender Null, 12h-Format mit oder ohne führender Null
+- Alternativ: Frei konfiguierbares Zeitformat
+- Regex-basierte Prüfung des Eingabeformats von Start- und Endzeit
+- Ausgabe als Infobox am Ende des Artikels (siehe Bild), konfigurierbar mit oder ohne Kopfzeile / Titel 
 
-    Wie Sie mit dieser Berechnung dann umgehen, ist Ihr eigenes Risiko. Obwohl ich den Rechenalgorithmus gründlich getestet habe und ihn selbst im Rahmen einer Insulinpumpentherapie in meiner Familie einsetze, lehne ich jede Garantie für dessen Korrektheit ab.
+## EventList Modul Features
 
-Ich will hier explizit die [Deutsche Diabeteshilfe](https://www.diabetesde.org/ueber_diabetes/was_ist_diabetes_/diabetes_lexikon/fett-protein-einheit-fpe){:target="_blank"} zitieren, die schreibt:
+- Anzeige aller ausgewählten Artikel als übersichtliche, kompakte Event-Liste
+- Möglichkeit, nicht publizierte Artikel in die Event-Liste aufzunehmen (wenn z.B. kein Artikelinhalt zur Verfügung steht, das Event aber dennoch in der Liste angezeigt werden soll)
+- Verschiedene voreingestellte Listendarstellungen: Deutsch (fügt das Wörtchen "Uhr" hinzu) oder international
+- Alternativ: Frei konfigurierbares Listenformat
+- Verlinkung auf die Detailbeschreibung (nur im Falle von bereits publizierten Artikeln)
+- Formatierung via eigenem CSS
 
-!!! quote "Deutsche Diabeteshilfe"
+# Installation
 
-    Egal ob Pumpe oder Pen – wenn Sie nach Absprache mit Ihrem Diabetologen die ersten Versuche mit Insulingaben für Fett-Eiweiß-Einheiten machen, sollten Sie Ihren Blutzuckerspiegel sehr gut im Auge behalten.
+Laden Sie das letzte stabile Release von Github als ZIP-File herunter. Es stehen zwei Dateien zum Herunterladen zur Verfügung:
 
-Ein paar persönliche Erfahrungswerte zum Schluss:
-
-- Wenn Sie loopen, ist es von Vorteil, wenn der Loop weiß, dass weitere Kohlenhydrate über die nächste Zeit zu erwarten sind. Er wird dann entweder die Menge oder die Anzahl der Autobolus-Gaben erhöhen.
-- Wenn Ihre Auto-Bolus-Einstellungen aus Sicherheitsgründen eine höhere oder häufigere Bolusgabe verhindern, werden Sie eine sehr hohe Insulinmenge als manuelle Abgabe vorgeschlagen bekommen (z.B. 1,5 IE bei einem Blutzucker von 180). Reduzieren Sie diese Menge am Anfang aus Sicherheitsgründen auf die Hälfte.
-- Und behalten Sie bei Erstanwendung bitte stets Ihren Blutzuckerverlauf im Blick.
-
-## Motivation und Konzept
-
-Die Motivation zum Programmieren von EasyFPE war, insbesondere Kindern mit Typ 1-Diabetes die Berechnung von Fett-Protein-Einheiten zu erleichtern.
-
-Das Errechnen von Kohlenhydraten erfolgt quasi nebenbei, ist jedoch bei vielen Typ 1-Diabetikern schon in Fleisch und Blut übergegangen und kann mit vielen anderen Apps auch erledigt werden. Mahlzeiten mit einem hohen Fett- oder Proteinanteil führen jedoch sehr oft zu einem späten Blutzuckeranstieg. Diesem kann in der heutigen Pumpentherapie mit einem verzögerten Bolus entgegengewirkt werden. Allerdings ist die Berechnung der abzugebenden Einheiten und der Abgabedauer nicht trivial. Genau dies erledigt diese App.
-
-Das Konzept hierfür ist absichtlich sehr einfach: Der Nutzer wählt ein oder mehrere Essen aus einer Liste aus und gibt deren Menge ein - wahlweise auch eine von bis zu drei vordefinierten typischen Mengen. Damit berechnet die App die FPE.
-
-Als Nutzer (bzw. als Eltern von Kindern mit Typ 1-Diabetes) muss man allerdings vorab etwas Zeit in das Anlegen von Essen investieren. Die Essensliste ist mit Absicht bei Erstinstallation komplett leer, da jeder sein eigenes typisches Essen hat ([Beispieldaten](manual.md#beispieldaten) können heruntergeladen werden). Es kann sich allerdings darauf beschränkt werden, nur Essen anzulegen, welches eben einen hohen Fett- oder Proteinanteil hat, z.B. Pizza, Bratwurst, McDonalds-Essen, usw.
-
-EasyFPE gibt es auch für iOS, wobei die iOS-Variante die neuere ist mit [deutlich mehr Features](https://ulricusr.github.io/de/#feature-ubersicht), da ich sie selbst bei mir in der Familie im Rahmen einer Insulintherapie nutze.
-
-## Datenschutzerklärung
+- Empfehlung ist, das EventList-Paket pgk_eventlist herunterzuladen, denn es beinhaltet sowohl das Plugin zum Hinzufügen und Darstellen von Eventinformationen in einem Artikel als auch das Modul zum Erstellen einer Übersichtsliste aller Events.
+- Das Plugin plg_content_eventlist kann auch für sich installiert und verwendet werden. Dann ist es aber nur möglich, Eventinformationen pro Artikel zu erfassen und darzustellen, es kann aber keine Übersichtsliste erstellt werden.
 
 !!! note "Hinweis"
+    Bitte installieren Sie niemals das Plugin für sich, wenn Sie planen, das Paket zu installieren! Das Paket enthält sowohl Plugin als auch Modul!
 
-    Dieser Abschnitt beinhaltet die Datenschutzerklärung der Android-App. Die Datenschutzerklärung der Webseite finden [an dieser Stelle](https://ulricusr.github.io/de/legal/).
+Der in Github veränderte Quelltext, der nicht als Release zur Verfügung gestellt wird, ist experimentell, daher keine Garantie, dass er funktionsfähig ist.
 
-Die Android-App EasyFPE speichert keinerlei persönliche Informationen und nutzt auch keinen Drittanbieter-Service, der dies tut.
+Installieren Sie das Paket im Joomla! Backend unter dem Menüpunkt *Erweiterungen - Installieren*.
 
-Die Essensliste wird auf Ihrem Smartphone gespeichert und enthält keinerlei persönliche Informationen.
+Das Paket besteht aus zwei Erweiterungen:
 
-## Probleme und Wünsche
+- Ein Plugin namens EventList (kann auch für sich installiert werden)
+- Ein Modul namens EventList (benötigt das Plugin und kann daher nicht für sich installiert werden)
 
-[Diese Probleme](https://github.com/UlricusR/Android-EasyFPU/issues){:target="_blank"} sind mir bekannt. Sollten Sie über neue Probleme stolpern, die mir noch nicht bekannt sind, können Sie unter gleichem Link ein Issue öffnen.
+![EventList Package mit einem Plugin und einem Modul](assets/images/EventList_Installation_Erweiterungen.png){ .off-glb }
 
-Da ich EasyFPE für Android nicht mehr weiterentwickle, werden nur Fehler behoben.
+# Konfiguration
 
-## Unterstützung
+## Plugin-Konfiguration
 
-Sollten Sie die App weiterentwickeln wollen, herzlich gerne - es ist alles Open Source und auf [GitHub](https://github.com/UlricusR/Android-EasyFPU){:target="_blank"} verfügbar.
+Das Plugin muss zunächst aktiviert werden (*Erweiterungen - Plugins*).
 
-Ansonsten freue ich mich natürlich über jeden spendierten Kaffee...
+![Plugin-Konfiguration](assets/images/EventList_Plugin_Konfiguration.png){ .off-glb }
 
-[![Buy me a coffee](assets/images/buymeacoffee_darkbackground.png#only-dark){ .off-glb }](https://www.buymeacoffee.com/ulricus){:target="_blank"}
-[![Buy me a coffee](assets/images/buymeacoffee_lightbackground.png#only-light){ .off-glb }](https://www.buymeacoffee.com/ulricus){:target="_blank"}
+Man kann das Plugin auf die Artikel bestimmter Kategorien einschränken. Außerdem kann man auswählen, ob Unterkategorien der gewählten Kategorien eingeschlossen werden sollen.
+
+Ferner kann das Uhrzeit-Format ausgewählt werden. Diese Auswahl bestimmt das Aussehen der Anfangs- und Endzeit während der Eingabe der Event-Infos. Entsprechen diese Eingaben nicht diesem Format, wird eine Fehlermeldung ausgegeben.
+
+Folgende Uhrzeit-Formate stehen zur Auswahl:
+
+- 24-Stunden-Format mit führender Null, z.B. 09:00
+- 12-Stunden-Format mit führender Null, z.B. 09:00 AM
+- 24-Stunden-Format ohne führende Null, z.B. 9:00
+- 12-Stunden-Format ohne führende Null, z.B. 9:00 AM
+- Freies Format (nicht empfohlen!): Hier erscheint ein zusätzliches Eingabefeld, wo eine Regex-Formatierung eingegeben werden kann. Bitte stellen Sie sicher, dass das Format auch von der PHP DateTime-Funktion als Uhrzeitformat erkannt wird, sonst ist ein Abspeichern der Event-Info nicht möglich.
+
+Zuletzt können Sie festlegen, ob die Infobox mit Titel dargestellt wird (Voreinstellung: "Info") oder nicht.
+
+## Module-Konfiguration
+
+![Module-Konfiguration](assets/images/EventList_Modul_Konfiguration.png){ .off-glb }
+
+### Parameter
+
+The following parameters are available for Module configuration (Extensions - Modules):
+
+- Nicht publizierte Artikel einschließen: Schließt Artikel, die die entsprechenden Felder haben, aber nicht publiziert sind, in die Liste ein (z.B. wenn ein Artikel inhaltlich noch nicht fertig ist); Voreinstellung: Nein
+- Kategorie: Auswahl der Kategorien, deren Artikel für die Event-Liste berücksichtigt werden sollen; wenn leer, werden alle Kategorien berücksichtigt
+- Woche startet mit: Legt fest, ob die Event-Liste mit Sonntag oder Montag beginnt; Voreinstellung: Sonntag
+- Template: Auswahl der Darstellung der Event-Liste; International = ohne Angaben wie "Uhr"; Deutsch = mit Angabe "Uhr" nach der Uhrzeit; Frei = frei konfigurierbar
+![Module-Konfiguration für freies Zeitformat](assets/images/Eventlist_Modul_Konfiguration_FreiesTemplate.png){ style="width:100px", align=right }
+- Wenn frei konfigurierbar gewählt wurde, erscheinen weitere Felder:
+    - Zeitentrenner: Zeichenkette zwischen Anfangs- und Endzeit
+    - Nach Zeit: Zeichenkette nach der Zeitangabe
+    - Vor Kommentar: Zeichenkette vor dem Kommentar
+    - Nach Kommentar: Zeichenkette nach dem Kommentar
+    - Vor Titel: Zeichenkette vor dem Titel
+
+### Systematik für frei konfigurierte Ausgabe
+
+Startzeit`<Zeitentrenner>`Endzeit`<nach Zeit>` `<vor Kommentar>`Kommentar`<nach Kommentar>` `<vor Titel>`Titel
+
+Beispiel:
+
+18:30` to `19:20` Uhr` ` (`außer in Schulferien`)` `: `Chorprobe
+
+### Einbindung des Moduls in die Webseite
+
+Das Modul kann entweder in einer von Ihrem Template vorgegebenen Position eingebunden werden oder frei im Inhalt eines Artikels positioniert werden.
+
+Für eine vorgegebene Template-Position wählen Sie die Position in der Liste der verfügbaren Positionen und über den Reiter "Menüzuweisung" die Seiten, auf denen das Modul eingebunden werden soll.
+
+Für eine freie Positionierung geben Sie in der Positions-Box Ihre eigene Bezeichnung ein (z.B. "Regeltermine" wie im Bild zu sehen) und binden Sie die Event-Liste im Artikel dann über den Befehl `{loadposition regular_events}` an beliebiger Stelle ein. In diesem Fall empfiehlt es sich, im Reiter "Menüzuweisung" alle Seiten auszuwählen.
+
+![Frei Positionierung des Moduls in einem Artikel](assets/images/Eventlist_Modul_Konfiguration_FreiePositionierung.png){ .off-glb }
+
+# Nutzung
+
+Die Nutzung des EventList-Plugins ist denkbar einfach. Sobald das Plugin aktiviert ist, erscheint bei Bearbeitung jedes Artikels ein extra Reiter namens "Kontaktperson, Ort, Zeit", wo die verfügbaren Felder bearbeitet werden können. Alle Felder sind optional, d.h. wenn keine Eingabe erfolgt, werden sie auch nicht unter dem Artikel ausgegeben.
+
+![Eingabefelder des EventList-Plugins](assets/images/Eventlist_Plugin_Eingabe.png){ .off-glb }
+
+- In Eventliste anzeigen: Wenn ja, wird der Artikel in der Eventliste angezeigt (wenn ein Wochentag gesetzt ist); Voreinstellung: Ja
+- Kontaktperson: Kontaktperson für die regelmäßige Veranstaltung
+- E-Mail: E-Mail-Adresse der Kontaktperson
+- Telefonnummer: Die Telefonnummer der Kontaktperson
+- Zielgruppe: Die Gruppe von Menschen, die mit der Veranstaltung angesprochen werden soll
+- Ort: Der Veranstaltungsort
+- Wochentag: Der Wochentag der Veranstaltung
+- Startzeit: Die Startzeit der Veranstaltung
+- Endzeit: Die Endzeit der Veranstaltung
+- Kommentar: Hinweise zur Zeit (z.B. 14-tägig)
+
+# Bekannte Fehler
+
+[Diese Fehler](https://github.com/UlricusR/joomla4-eventlist/issues){:target="_blank"} sind mir bekannt. Sollten Sie über weitere Fehler stolpern, können Sie diese an selber Stelle melden.
+
+Da ich Joomla nicht mehr nutze, entwickle ich auch das Plugin nicht mehr weiter.
+
+# Mitmachen
+
+Sollten Sie die Entwicklung weiterführen wollen, herzlich gerne! Es steht alles auf [GitHub](https://github.com/UlricusR/joomla4-eventlist){:target="_blank"} bereit.
+
+Ansonsten freue ich mich über jeden spendierten Kaffee...
+
+[![Spendiere einen Kaffee](assets/images/buymeacoffee_darkbackground.png#only-dark){ .off-glb }](https://www.buymeacoffee.com/ulricus){:target="_blank"}
+[![Spendiere einen Kaffee](assets/images/buymeacoffee_lightbackground.png#only-light){ .off-glb }](https://www.buymeacoffee.com/ulricus){:target="_blank"}

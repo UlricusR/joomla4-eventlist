@@ -40,11 +40,13 @@ Download the latest stable release from Github as ZIP file. There are two ZIP fi
 
 - It is recommended to download the package file pgk_eventlist, as it contains both the plugin for adding and displaying the new fields of the article as well as the module to generate the Event List.
 - The Plugin plg_content_eventlist can be downloaded and installed stand-alone, in case you would like to limit the functionality to the pure display of additional fields in the article.
-- Please do never installed the Plugin stand-alone, if you plan to install the Package later. The Package contains both the Plugin as well as the Module!
+
+!!! note
+    Please do never install the Plugin stand-alone, if you plan to install the Package later. The Package contains both the Plugin as well as the Module!
 
 The source code available from Github, which is not declared as release, is highly experimental, so no guarantee that it will work.
 
-Install the package in the Joomla! backend under Extensions - Install.
+Install the package in the Joomla! backend under *Extensions - Install*.
 
 The package contains two extensions:
 
@@ -57,7 +59,7 @@ The package contains two extensions:
 
 ## Plugin Configuration
 
-Please active the Plugin after installation (Extensions - Plugins).
+Please active the Plugin after installation (*Extensions - Plugins*).
 
 ![Plugin Configuration](assets/images/EventList_Plugin_Konfiguration.png){ .off-glb }
 
@@ -130,7 +132,7 @@ The usage of the EventList-Plugin is simple and straight-forward. As soon as ins
 - End time: The end time of the event
 - Comment: Comment on time (e.g. bi-weekly)
 
-# Issues and Requests
+# Known Issues
 
 [These issues](https://github.com/UlricusR/joomla4-eventlist/issues){:target="_blank"} are known to me. Should you stumble over new issues, please submit an it via the same link.
 
