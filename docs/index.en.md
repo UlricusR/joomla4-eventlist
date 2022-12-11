@@ -1,3 +1,5 @@
+# User Manual
+
 Joomla 4 EventList is a [Joomla!](https://www.joomla.org){ :target="_blank" } package generating and displaying a clear list of weekly recurring events like rehersals, group meeting, etc., and linking to their detailed description.
 
 ![Exemplary Joomla! EventList view](assets/images/Portfolio_EventList.png){ .off-glb }
@@ -9,9 +11,9 @@ It is a package containing two extensions:
 
 While the EventList Plugin can be used stand-alone, the EventList Module requires the Plugin to be installed.
 
-# Features
+## Features
 
-## EventList PlugIn Features
+### EventList PlugIn Features
 
 ![Infobox underneath the article](assets/images/EventList_Plugin_Ausgabe.png){ style="width:100px", align=right }
 
@@ -23,7 +25,7 @@ While the EventList Plugin can be used stand-alone, the EventList Module require
 - Regex based input check of starting and end time
 - Frontend display as info box underneath the article (see picture), either with or without header / title
 
-## EventList Modul Features
+### EventList Modul Features
 
 - Display of all selected articles as clear, compact event list
 - Possibility to include non-published articles in the Event List (e.g. if no article content available, but the event should still be displayed in the Event List)
@@ -32,7 +34,7 @@ While the EventList Plugin can be used stand-alone, the EventList Module require
 - Link to the detailed article (in case the article is published already)
 - Fomatting via own CCS
 
-# Installation
+## Installation
 
 Download the latest stable release from Github as ZIP file. There are two ZIP files for download:
 
@@ -53,9 +55,9 @@ The package contains two extensions:
 
 ![EventList Package containing a Plugin and a Module](assets/images/EventList_Installation_Erweiterungen.png){ .off-glb }
 
-# Configuration
+## Configuration
 
-## Plugin Configuration
+### Plugin Configuration
 
 Please active the Plugin after installation (*Extensions - Plugins*).
 
@@ -75,11 +77,11 @@ The following pre-defined formats are available:
 
 Finally, you can select whether or not the InfoBox is displayed with a title (default: "Info") or not.
 
-## Module Configuration
+### Module Configuration
 
 ![Module Configuration](assets/images/EventList_Modul_Konfiguration.png){ .off-glb }
 
-### Parameters
+#### Parameters
 
 The following parameters are available for Module configuration (Extensions - Modules):
 
@@ -95,7 +97,7 @@ The following parameters are available for Module configuration (Extensions - Mo
     - After comment: String after the comment
     - Before title: String before the title
 
-### System of Fully Configurable Output
+#### System of Fully Configurable Output
 
 Starting time`<time separator>`End time`<after time>` `<before comment>`Comment`<after comment>` `<before title>`Title
 
@@ -103,7 +105,7 @@ Example:
 
 6:30 PM` to `7:30 PM`(empty)` ` (`except for school holidays`)` `: `Choir rehersal
 
-### Integration of the Module in the Website
+#### Integration of the Module in the Website
 
 The module can either be integrated as stand-alone module in a defined module position or it can be positioned freely within an article.
 
@@ -113,7 +115,7 @@ In case of a free positioning, define a module position name in the module posit
 
 ![Free positioning of the module in an article](assets/images/Eventlist_Modul_Konfiguration_FreiePositionierung.png){ .off-glb }
 
-# Usage
+## Usage
 
 The usage of the EventList-Plugin is simple and straight-forward. As soon as installed and activated, a new tab called "Contact person, location, time" will appear when editing an article, where the input fields can be edited. All fields are optional, i.e. if a field has no value, it won't be displayed in the info box underneath the article.
 
@@ -130,13 +132,13 @@ The usage of the EventList-Plugin is simple and straight-forward. As soon as ins
 - End time: The end time of the event
 - Comment: Comment on time (e.g. bi-weekly)
 
-# Known Issues
+## Known Issues
 
 [These issues](https://github.com/UlricusR/joomla4-eventlist/issues){:target="_blank"} are known to me. Should you stumble over new issues, please submit an it via the same link.
 
 As I'm no longer using Joomla, I do not futher develop the EventList.
 
-# Contribute
+## Contribute
 
 If you want to take over and further develop EventList for Joomla, you're welcome! It's all Open Source and on [GitHub](https://github.com/UlricusR/joomla4-eventlist){:target="_blank"}.
 

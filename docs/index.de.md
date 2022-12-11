@@ -1,3 +1,5 @@
+# Bedienungsanleitung
+
 EventList für [Joomla 4](https://www.joomla.de){ :target="_blank" } ist ein Joomla!-Paket, das wöchentlich wiederkehrende Veranstaltungen wie Chorproben, Gruppenstunden, etc. automatisch als übersichtliche Liste darstellt und auf die Detail-Beschreibung verlinkt.
 
 ![Beispielhafte EventList-Ansicht](assets/images/Portfolio_EventList.png){ .off-glb }
@@ -7,9 +9,9 @@ Joomla! EventList ist eine Paketinstallation und besteht aus zwei Erweiterungen:
 - Ein Plugin, welches jedem Artikel zusätzliche Felder wie Kontaktperson, E-Mail-Adresse, Telefonnummer, Wochentag, Startzeit, usw. zur Verfügung stellt. Diese Felder werden dann am Ende des Artikels in einer übersichtlichen Infobox angezeigt. Das Plugin kann auch ohne das Modul verwendet werden.
 - Ein Modul, welches alle zur Anzeige ausgewählten Artikel als übersichtliche Liste darstellt (siehe Bild). Dieses Modul kann an jeder beliebigen Stelle eingebunden werden und natürlich auch per CSS angepasst werden. Aus der Liste heraus wird auf den Artikel mit der Detailbeschreibung verlinkt. Das Modul benötigt das Plugin!
 
-# Besonderheiten
+## Besonderheiten
 
-## EventList PlugIn Besonderheiten
+### EventList PlugIn Besonderheiten
 
 ![Infobox unter dem Artikel](assets/images/EventList_Plugin_Ausgabe.png){ style="width:100px", align=right }
 
@@ -21,7 +23,7 @@ Joomla! EventList ist eine Paketinstallation und besteht aus zwei Erweiterungen:
 - Regex-basierte Prüfung des Eingabeformats von Start- und Endzeit
 - Ausgabe als Infobox am Ende des Artikels (siehe Bild), konfigurierbar mit oder ohne Kopfzeile / Titel 
 
-## EventList Modul Features
+### EventList Modul Features
 
 - Anzeige aller ausgewählten Artikel als übersichtliche, kompakte Event-Liste
 - Möglichkeit, nicht publizierte Artikel in die Event-Liste aufzunehmen (wenn z.B. kein Artikelinhalt zur Verfügung steht, das Event aber dennoch in der Liste angezeigt werden soll)
@@ -30,7 +32,7 @@ Joomla! EventList ist eine Paketinstallation und besteht aus zwei Erweiterungen:
 - Verlinkung auf die Detailbeschreibung (nur im Falle von bereits publizierten Artikeln)
 - Formatierung via eigenem CSS
 
-# Installation
+## Installation
 
 Laden Sie das letzte stabile Release von Github als ZIP-File herunter. Es stehen zwei Dateien zum Herunterladen zur Verfügung:
 
@@ -51,9 +53,9 @@ Das Paket besteht aus zwei Erweiterungen:
 
 ![EventList Package mit einem Plugin und einem Modul](assets/images/EventList_Installation_Erweiterungen.png){ .off-glb }
 
-# Konfiguration
+## Konfiguration
 
-## Plugin-Konfiguration
+### Plugin-Konfiguration
 
 Das Plugin muss zunächst aktiviert werden (*Erweiterungen - Plugins*).
 
@@ -73,11 +75,11 @@ Folgende Uhrzeit-Formate stehen zur Auswahl:
 
 Zuletzt können Sie festlegen, ob die Infobox mit Titel dargestellt wird (Voreinstellung: "Info") oder nicht.
 
-## Module-Konfiguration
+### Module-Konfiguration
 
 ![Module-Konfiguration](assets/images/EventList_Modul_Konfiguration.png){ .off-glb }
 
-### Parameter
+#### Parameter
 
 The following parameters are available for Module configuration (Extensions - Modules):
 
@@ -93,7 +95,7 @@ The following parameters are available for Module configuration (Extensions - Mo
     - Nach Kommentar: Zeichenkette nach dem Kommentar
     - Vor Titel: Zeichenkette vor dem Titel
 
-### Systematik für frei konfigurierte Ausgabe
+#### Systematik für frei konfigurierte Ausgabe
 
 Startzeit`<Zeitentrenner>`Endzeit`<nach Zeit>` `<vor Kommentar>`Kommentar`<nach Kommentar>` `<vor Titel>`Titel
 
@@ -101,7 +103,7 @@ Beispiel:
 
 18:30` to `19:20` Uhr` ` (`außer in Schulferien`)` `: `Chorprobe
 
-### Einbindung des Moduls in die Webseite
+#### Einbindung des Moduls in die Webseite
 
 Das Modul kann entweder in einer von Ihrem Template vorgegebenen Position eingebunden werden oder frei im Inhalt eines Artikels positioniert werden.
 
@@ -111,7 +113,7 @@ Für eine freie Positionierung geben Sie in der Positions-Box Ihre eigene Bezeic
 
 ![Frei Positionierung des Moduls in einem Artikel](assets/images/Eventlist_Modul_Konfiguration_FreiePositionierung.png){ .off-glb }
 
-# Nutzung
+## Nutzung
 
 Die Nutzung des EventList-Plugins ist denkbar einfach. Sobald das Plugin aktiviert ist, erscheint bei Bearbeitung jedes Artikels ein extra Reiter namens "Kontaktperson, Ort, Zeit", wo die verfügbaren Felder bearbeitet werden können. Alle Felder sind optional, d.h. wenn keine Eingabe erfolgt, werden sie auch nicht unter dem Artikel ausgegeben.
 
@@ -128,13 +130,13 @@ Die Nutzung des EventList-Plugins ist denkbar einfach. Sobald das Plugin aktivie
 - Endzeit: Die Endzeit der Veranstaltung
 - Kommentar: Hinweise zur Zeit (z.B. 14-tägig)
 
-# Bekannte Fehler
+## Bekannte Fehler
 
 [Diese Fehler](https://github.com/UlricusR/joomla4-eventlist/issues){:target="_blank"} sind mir bekannt. Sollten Sie über weitere Fehler stolpern, können Sie diese an selber Stelle melden.
 
 Da ich Joomla nicht mehr nutze, entwickle ich auch das Plugin nicht mehr weiter.
 
-# Mitmachen
+## Mitmachen
 
 Sollten Sie die Entwicklung weiterführen wollen, herzlich gerne! Es steht alles auf [GitHub](https://github.com/UlricusR/joomla4-eventlist){:target="_blank"} bereit.
 
