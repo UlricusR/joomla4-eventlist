@@ -1,6 +1,4 @@
-# Benutzerhandbuch
-
-In Joomla! EventList dreht sich alles um wöchentlich wiederkehrende Events Wie Chorproben, Gruppenstunden, etc.
+EventList für [Joomla 4](https://www.joomla.de){ :target="_blank" } ist ein Joomla!-Paket, das wöchentlich wiederkehrende Veranstaltungen wie Chorproben, Gruppenstunden, etc. automatisch als übersichtliche Liste darstellt und auf die Detail-Beschreibung verlinkt.
 
 ![Beispielhafte EventList-Ansicht](assets/images/Portfolio_EventList.png){ .off-glb }
 
