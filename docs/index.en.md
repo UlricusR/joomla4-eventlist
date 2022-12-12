@@ -1,6 +1,6 @@
 # User Manual
 
-Joomla 4 EventList is a [Joomla!](https://www.joomla.org){ :target="_blank" } package generating and displaying a clear list of weekly recurring events like rehersals, group meeting, etc., and linking to their detailed description.
+Joomla 4 EventList is a [Joomla!](https://www.joomla.org){ :target="_blank" } package generating and displaying a list of weekly recurring events like rehersals, group meetings, etc., and linking to their detailed description.
 
 ![Exemplary Joomla! EventList view](assets/images/Portfolio_EventList.png){ .off-glb }
 
