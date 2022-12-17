@@ -32,6 +32,12 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/ulrichrueth/
 
+nav:
+  - 'index.md'
+  - 'installation.md'
+  - 'configuration.md'
+  - 'usage.md'
+
 plugins:
   - i18n:
       default_language: en
