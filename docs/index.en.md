@@ -1,13 +1,13 @@
 # User Manual
 
-Joomla 4 EventList is a [Joomla!](https://www.joomla.org){:target="_blank"} package generating and displaying a clear list of weekly recurring events like rehersals, group meeting, etc., and linking to their detailed description.
+Joomla 4 EventList is a [Joomla!](https://www.joomla.org){:target="_blank"} package generating and displaying a list of weekly recurring events like rehersals, group meetings, etc., and linking to their detailed description.
 
 ![Exemplary Joomla! EventList view](assets/images/Portfolio_EventList.png){ .off-glb }
 
 It is a package containing two extensions:
 
-- The EventList Plugin lets you add a number of infos like contact person, e-mail-address, phone number, weekday, starting time, etc. to your article. These infos are then displayed underneath the article in a info box.
-- The EventList Module screens your Joomla! articles and creates a sorted list for all articles identified as regularly recurring events. It can be used for automatically summarizing your recurring events (like bible lessons, choir rehearsal, etc.). It can be flexibly positioned and customized via CSS. The Module requires the Plugin to be installed. 
+- The EventList Plugin lets you add a number of infos like contact person, e-mail-address, phone number, weekday, starting time, etc. to your article. These infos are then displayed underneath the article in an info box.
+- The EventList Module screens your Joomla! articles and creates a sorted list for all articles identified as regularly recurring events. It can be used for automatically summarizing your recurring events (like bible lessons, choir rehearsal, etc.). It can be flexibly positioned and customized via CSS. 
 
 While the EventList Plugin can be used stand-alone, the EventList Module requires the Plugin to be installed.
 
