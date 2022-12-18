@@ -13,7 +13,7 @@
 	<packager>Ulrich Rueth</packager>
 	<description>Package including the EventList Plugin and Module</description>
 	<updateservers>
-		<server type="collection">https://update.rueth.info/pgk_eventlist_update.xml</server>
+		<server type="collection">https://config.rueth.info/pgk_eventlist_update.xml</server>
 	</updateservers>
 	<blockChildUninstall>1</blockChildUninstall>
 	<files folder="packages">
