@@ -7,3 +7,5 @@ The EventList Plugin lets you add a number of infos like contact person, e-mail-
 The EventList Module screens your Joomla! articles and creates a sorted list for all articles identified as regularly recurring events. It can be used for automatically summarizing your recurring events (like bible lessons, choir rehearsal, etc.).
 
 While the EventList Plugin can be used stand-alone, the EventList Module requires the Plugin to be installed.
+
+See [www.rueth.info](https://www.rueth.info) for documentation.
