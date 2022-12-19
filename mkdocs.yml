@@ -1,5 +1,5 @@
 site_name: EventList for Joomla 4
-site_url: https://ulricusr.github.io/joomla4-eventlist
+site_url: https://www.rueth.info/joomla4-eventlist
 repo_url: https://github.com/UlricusR/joomla4-eventlist
 edit_uri: edit/site-sources/docs/
 
@@ -45,11 +45,11 @@ plugins:
         en:
           name: English
           site_name: EventList for Joomla 4
-          homepage: https://ulricusr.github.io/en
+          homepage: https://www.rueth.info/en
         de:
           name: Deutsch
           site_name: EventList für Joomla 4
-          homepage: https://ulricusr.github.io/de
+          homepage: https://www.rueth.info/de
   - search
   - glightbox
 
